@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/dist/output.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Website project template</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -12,21 +11,35 @@
         fetch(url)
         .then((response) => response.text())
         .then((html) => {
-            document.getElementById(id).innerHTML = html;
+          document.getElementById(id).innerHTML = html;
+          if ((id = "header")) {
+            let image = document.querySelector("#image");
+            console.log(image);
+            let z = 0;
+            image.addEventListener("click", () => {
+              if (z === 0) {
+                document.querySelector("#list").style.display = "block";
+                z = 1;
+              } else {
+                document.querySelector("#list").style.display = "none";
+                z = 0;
+              }
+            });
+          }
         });
-    }
+    };
 
     window.onload = () => {
-        loadComponents('header', 'src/sections/header.html');
-        loadComponents('hero', 'src/sections/hero.html');
-        loadComponents('contact', 'src/sections/contact.html');
-        loadComponents('footer', 'src/sections/footer.html');
-    }
-</script>
-<body>
+      loadComponents("header", "src/sections/header.html");
+      loadComponents("hero", "src/sections/hero.html");
+      loadComponents("contact", "src/sections/contact.html");
+      loadComponents("footer", "src/sections/footer.html");
+    };
+  </script>
+  <body>
     <div id="header"></div>
     <div id="hero"></div>
     <div id="contact"></div>
     <div id="footer"></div>
-</body>
+  </body>
 </html>
