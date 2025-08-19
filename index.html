@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dist/output.css">
     <title>Website project template</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<script>
-    const loadComponents = (id, url) =>  {
-        fetch(url)
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  </head>
+  <script>
+    const loadComponents = (id, url) => {
+      fetch(url)
         .then((response) => response.text())
         .then((html) => {
           document.getElementById(id).innerHTML = html;
@@ -25,6 +26,27 @@
                 z = 0;
               }
             });
+            document.querySelector("#cont").addEventListener("click", () => {
+              document.querySelector("#contact").style.display = "block";
+              document.querySelector("#landing").style.display = "none";
+              document.querySelector("#hero").style.display = "none";
+              document.querySelector("#header").style.color = "#2f855a";
+              document.querySelector("#footer").style.color = "#2f855a";
+            });
+            document.querySelector("#about").addEventListener("click", () => {
+              document.querySelector("#landing").style.display = "block";
+              document.querySelector("#contact").style.display = "none";
+              document.querySelector("#hero").style.display = "none";
+              document.querySelector("#header").style.color = "black";
+              document.querySelector("#footer").style.color = "black";
+            });
+            document.querySelector("#heroo").addEventListener("click", () => {
+              document.querySelector("#hero").style.display = "block";
+              document.querySelector("#contact").style.display = "none";
+              document.querySelector("#landing").style.display = "none";
+              document.querySelector("#header").style.color = "#2f855a";
+              document.querySelector("#footer").style.color = "#2f855a";
+            });
           }
         });
     };
@@ -39,8 +61,8 @@
   </script>
   <body>
     <div id="header"></div>
-    <div id="hero"></div>
-    <div id="contact"></div>
+    <div id="hero" class="hidden"></div>
+    <div id="contact" class="hidden"></div>
     <div id="landing"></div>
     <div id="footer"></div>
   </body>
