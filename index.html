@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/dist/output.css">
+    <link rel="stylesheet" href="/dist/output.css" />
     <title>Website project template</title>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <script>
     const loadComponents = (id, url) => {
@@ -26,9 +26,15 @@
                 z = 0;
               }
             });
+
             document.querySelector("#cont").addEventListener("click", () => {
               document.querySelector("#contact").style.display = "block";
               document.querySelector("#landing").style.display = "none";
+              document.querySelector("#landing").style.display = "none";
+              document.querySelector("#berlin").style.display = "none";
+              document.querySelector("#yellow").style.display = "none";
+              document.querySelector("#brand").style.display = "none";
+              document.querySelector("#ace").style.display = "none";
               document.querySelector("#hero").style.display = "none";
               document.querySelector("#header").style.color = "#2f855a";
               document.querySelector("#footer").style.color = "#2f855a";
@@ -44,7 +50,29 @@
               document.querySelector("#header").style.color = "black";
               document.querySelector("#footer").style.color = "black";
             });
+            document.querySelector("#about1").addEventListener("click", () => {
+              document.querySelector("#landing").style.display = "block";
+              document.querySelector("#berlin").style.display = "block";
+              document.querySelector("#yellow").style.display = "block";
+              document.querySelector("#brand").style.display = "block";
+              document.querySelector("#ace").style.display = "block";
+              document.querySelector("#contact").style.display = "none";
+              document.querySelector("#hero").style.display = "none";
+              document.querySelector("#header").style.color = "black";
+              document.querySelector("#footer").style.color = "black";
+            });
             document.querySelector("#heroo").addEventListener("click", () => {
+              document.querySelector("#hero").style.display = "block";
+              document.querySelector("#contact").style.display = "none";
+              document.querySelector("#landing").style.display = "none";
+              document.querySelector("#berlin").style.display = "none";
+              document.querySelector("#yellow").style.display = "none";
+              document.querySelector("#brand").style.display = "none";
+              document.querySelector("#ace").style.display = "none";
+              document.querySelector("#header").style.color = "#2f855a";
+              document.querySelector("#footer").style.color = "#2f855a";
+            });
+            document.querySelector("#heroo1").addEventListener("click", () => {
               document.querySelector("#hero").style.display = "block";
               document.querySelector("#contact").style.display = "none";
               document.querySelector("#landing").style.display = "none";
