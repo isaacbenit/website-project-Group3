@@ -1,31 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/dist/output.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dist/output.css" />
     <title>Website project template</title>
-</head>
-<script>
-    const loadComponents = (id, url) =>  {
-        fetch(url)
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <script>
+    const loadComponents = (id, url) => {
+      fetch(url)
         .then((response) => response.text())
         .then((html) => {
-            document.getElementById(id).innerHTML = html;
+          document.getElementById(id).innerHTML = html;
+          if ((id = "header")) {
+            let image = document.querySelector("#image");
+            let z = 0;
+            image.addEventListener("click", () => {
+              if (z === 0) {
+                document.querySelector("#list").style.display = "block";
+                z = 1;
+              } else {
+                document.querySelector("#list").style.display = "none";
+                z = 0;
+              }
+            });
+
+            const data = ["About", "Service", "References", "Contact"];
+            const listItems = data
+              .map((item) => {
+                if (item === "References") {
+                  return `<li id='heroo' >${item}</li>`;
+                } else if (item === "About") {
+                  return `<li id='about'>${item}</li>`;
+                } else {
+                  return `<li >${item}</li>`;
+                }
+              })
+              .join("");
+            const allNameLists = document.querySelectorAll(".name-list");
+
+            allNameLists.forEach((list) => {
+              list.innerHTML = listItems;
+            });
+
+            const array = document.querySelectorAll("#heroo");
+            array.forEach((el) => {
+              el.addEventListener("click", () => {
+                document.querySelector("#hero").style.display = "block";
+                document.querySelector("#contact").style.display = "none";
+                document.querySelector("#landing").style.display = "none";
+                document.querySelector("#berlin").style.display = "none";
+                document.querySelector("#yellow").style.display = "none";
+                document.querySelector("#brand").style.display = "none";
+                document.querySelector("#ace").style.display = "none";
+                document.querySelector("#header").style.color = "#2f855a";
+                document.querySelector("#footer").style.color = "#2f855a";
+              });
+            });
+            const array2 = document.querySelectorAll("#about");
+            array2.forEach((el) => {
+              el.addEventListener("click", () => {
+                document.querySelector("#landing").style.display = "block";
+                document.querySelector("#berlin").style.display = "block";
+                document.querySelector("#yellow").style.display = "block";
+                document.querySelector("#brand").style.display = "block";
+                document.querySelector("#ace").style.display = "block";
+                document.querySelector("#contact").style.display = "none";
+                document.querySelector("#hero").style.display = "none";
+                document.querySelector("#header").style.color = "black";
+                document.querySelector("#footer").style.color = "black";
+              });
+            });
+            document.querySelector("#cont").addEventListener("click", () => {
+              document.querySelector("#contact").style.display = "block";
+              document.querySelector("#landing").style.display = "none";
+              document.querySelector("#landing").style.display = "none";
+              document.querySelector("#berlin").style.display = "none";
+              document.querySelector("#yellow").style.display = "none";
+              document.querySelector("#brand").style.display = "none";
+              document.querySelector("#ace").style.display = "none";
+              document.querySelector("#hero").style.display = "none";
+              document.querySelector("#header").style.color = "#2f855a";
+              document.querySelector("#footer").style.color = "#2f855a";
+            });
+          }
         });
-    }
+    };
 
     window.onload = () => {
-        loadComponents('header', 'src/sections/header.html');
-        loadComponents('hero', 'src/sections/hero.html');
-        loadComponents('contact', 'src/sections/contact.html');
-        loadComponents('footer', 'src/sections/footer.html');
-    }
-</script>
-<body>
-    <div id="header"></div>
-    <div id="hero"></div>
-    <div id="contact"></div>
+      loadComponents("header", "src/sections/header.html");
+      loadComponents("hero", "src/sections/hero.html");
+      loadComponents("contact", "src/sections/contact.html");
+      loadComponents("footer", "src/sections/footer.html");
+      loadComponents("landing", "src/sections/landing.html");
+      loadComponents("berlin", "src/sections/berlin.html");
+      loadComponents("yellow", "src/sections/yellow.html");
+      loadComponents("brand", "src/sections/brand.html");
+      loadComponents("ace", "src/sections/ace.html");
+    };
+  </script>
+  <body>
+    <div id="header" class="sticky top-0 z-30"></div>
+    <div id="hero" class="hidden"></div>
+    <div id="contact" class="hidden"></div>
+    <div id="landing"></div>
+    <div id="berlin"></div>
+    <div id="yellow" class="sticky top-0 z-29"></div>
+    <div id="brand"></div>
+    <div id="ace"></div>
     <div id="footer"></div>
-</body>
+  </body>
 </html>
